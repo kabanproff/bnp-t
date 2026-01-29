@@ -50,7 +50,7 @@ export const CatalogPage: React.FC = () => {
 
   return (
     <div className={styles['catalog-page']}>
-      <h1 className={styles['catalog-page__title']}>Каталог товаров{filteredProducts.length || ' пуст'}</h1>
+      <h1 className={styles['catalog-page__title']}>Каталог товаров{filteredProducts.length ? '' : ' пуст'}</h1>
       {
         !!filteredProducts.length &&
         <>
