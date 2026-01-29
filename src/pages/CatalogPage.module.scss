@@ -1,0 +1,31 @@
+// pages/CatalogPage/CatalogPage.module.scss
+.catalog-page {
+
+  &__title {
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  &__filters {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__loading,
+  &__error {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+  }
+
+  &__error {
+    color: #d32f2f;
+    background: #ffebee;
+    border-radius: 8px;
+  }
+}

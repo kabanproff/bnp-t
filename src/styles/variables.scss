@@ -1,0 +1,67 @@
+:root {
+  /* --- Цвета --- */
+  --primary-color: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary-color: #64748b;
+  --success-color: #10b981;
+  --success-dark: #059669;
+  --warning-color: #f59e0b;
+  --warning-dark: #b67507;
+  --error-color: #ef4444;
+  --info-color: #2563eb;
+
+  /* --- Фоновые цвета --- */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-disabled: #f3f4f6;
+
+  /* --- Текстовые цвета --- */
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --text-disabled: #64748b;
+  --color-btn: #ffffff;
+
+  /* --- Границы и тени --- */
+  --border-color: #e2e8f0;
+  --border-radius: 8px;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+  /* --- Размеры --- */
+  --fz-default: 16px;
+  --header-height: 60px;
+  --grid-gutter-width: 8px;
+
+  /* --- Цвета в RGB для rgba() --- */
+  --color-black-rgb: 0, 0, 0;
+  --color-white-rgb: 255, 255, 255;
+  --color-primary-rgb: 37, 99, 235;
+  --color-success-rgb: 16, 185, 129;
+  --color-warning-rgb: 245, 158, 11;
+  --color-error-rgb: 239, 68, 68;
+
+  /* --- Альфа-версии --- */
+  --rgba-black-70: rgba(var(--color-black-rgb), 0.7);
+  --rgba-black-90: rgba(var(--color-black-rgb), 0.9);
+  --rgba-black-20: rgba(var(--color-black-rgb), 0.2);
+  --rgba-white-90: rgba(var(--color-white-rgb), 0.9);
+  --rgba-white-80: rgba(var(--color-white-rgb), 0.8);
+  --rgba-white-70: rgba(var(--color-white-rgb), 0.7);
+
+  /* --- Новые: для hover и активных состояний --- */
+  --bg-hover: #f5f5f5;
+  --bg-active: #e0e0e0;
+  --text-hover: var(--primary-color);
+}
+
+html[data-theme="dark"] {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --bg-card: #171717;
+  --color-btn: #382c2c;
+}

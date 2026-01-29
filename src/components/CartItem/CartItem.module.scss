@@ -1,0 +1,118 @@
+.cartItem {
+  display: grid;
+  grid-template-columns: 100px 1fr auto auto auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: all 0.2s;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  background: var(--bg-secondary);
+}
+
+.details {
+  .title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .category {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .price {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantityButton {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+
+  &:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+  }
+}
+
+.quantity {
+  min-width: 40px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.subtotal {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.removeButton {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: var(--error-color);
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 768px) {
+  .cartItem {
+    grid-template-columns: 80px 1fr;
+    gap: 0.5rem;
+  }
+
+  .quantityControls,
+  .subtotal,
+  .removeButton {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .image {
+    width: 80px;
+    height: 80px;
+  }
+}

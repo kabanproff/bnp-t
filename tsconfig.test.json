@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "verbatimModuleSyntax": false,
+    "allowImportingTsExtensions": false,
+    "noUncheckedSideEffectImports": false,
+    "noEmit": false,
+    "jsx": "react-jsx",
+    "target": "ESNext",
+    "esModuleInterop": true
+  },
+  "include": ["src", "src/lib/queryClient.ts"]
+}

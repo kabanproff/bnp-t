@@ -1,0 +1,156 @@
+.c-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  min-width: min(100%,300px);
+
+  span {
+    white-space: nowrap;
+  }
+
+  &__swrap {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 240px;
+  }
+
+  &__trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 16px;
+    background-color: var(--color-btn);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    }
+
+    &:hover {
+      border-color: #bbb;
+    }
+
+    &.open {
+      border-color: #007bff;
+      box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    }
+
+
+  }
+
+  &__selected {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__sarrow {
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+  }
+
+  &__list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 4px 0 0 0;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    max-height: 240px;
+    overflow-y: auto;
+    list-style: none;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    background-color: var(--bg-card);
+
+    &.fade-enter {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    &.fade-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    // Убираем скролл-бар на iOS
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &__item {
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    border-bottom: 1px solid #f5f5f5;
+    transition: background-color 0.15s ease;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--bg-secondary);
+      outline: none;
+    }
+
+    &.selected {
+      background-color: #e9f5ff;
+      color: #007bff;
+      font-weight: 600;
+    }
+
+    &:focus {
+      outline: 2px solid #007bff;
+      outline-offset: -2px;
+    }
+  }
+
+  .select-icon {
+    transition: transform 0.2s ease;
+  }
+
+  .rotated {
+    transform: rotate(180deg);
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .c-filter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .c-filter__trigger {
+    padding: 14px;
+    font-size: 18px;
+  }
+
+  .c-filter__item {
+    padding: 14px 16px;
+    font-size: 18px;
+  }
+}

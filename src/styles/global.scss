@@ -1,0 +1,114 @@
+@use './variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  line-height: 1.2;
+  font-size: var(--fz-default);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sliding {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.skeleton.skeleton {
+  overflow: hidden;
+  position: relative;
+  background-color: #f4f4f4;
+  pointer-events: none;
+
+  * {
+    color: #f4f4f4;
+    background-color: #f4f4f4;
+    border-color: #f4f4f4;
+  }
+}
+
+.skeleton:after,
+.skeleton:before {
+  content: "";
+  position: absolute;
+  animation: sliding 2500ms linear infinite;
+}
+
+.skeleton:before {
+  content: "";
+  position: absolute;
+  left: calc(var(--grid-gutter-width) / 2);
+  right: calc(var(--grid-gutter-width) / 2);
+  bottom: calc(var(--grid-gutter-width) / 2);
+  top: calc(var(--grid-gutter-width) / 2);
+  background-color: #f4f4f4;
+}
+
+.skeleton:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  animation: sliding 2500ms linear infinite;
+  background: linear-gradient(
+                  to right,
+                  rgba(255, 255, 255, 0.3) 8%,
+                  #dfdee2 18%,
+                  rgba(255, 255, 255, 0) 33%
+  );
+}
+
+*[disabled],
+*[data-disabled="true"]{
+  cursor: not-allowed;
+  opacity: 0.3;
+  user-select: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
