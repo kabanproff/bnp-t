@@ -13,6 +13,14 @@ const config = {
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
+  moduleFileExtensions: ['ts', 'js', 'json', 'node'],
+  collectCoverage: true,
+  coverageDirectory: 'coverage',
+  coverageProvider: 'v8',
+  testMatch: [
+    '<rootDir>/src/**/*.{test,spec}.{ts,tsx}',
+  ],
+  setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
 };
 
 module.exports = config;

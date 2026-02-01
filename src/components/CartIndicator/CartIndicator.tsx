@@ -19,7 +19,7 @@ const CartIndicator: React.FC<CartIndicatorProps> = ({totalItems}) => {
   if (totalItems === 0) return null;
 
   return (
-    <div key={key} className={styles["cart-indicator"]}>
+    <div key={key} className={styles["cart-indicator"]} data-testid="cart-indicator">
       🛒 <span>
       {totalItems}
     </span> {wordNums}

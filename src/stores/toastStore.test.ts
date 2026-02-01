@@ -43,4 +43,28 @@ describe('useToastStore', () => {
     expect(result.current.toasts).toHaveLength(1)
     expect(result.current.toasts[0].message).toBe('Test 2')
   })
+
+  it('should automatically remove toast after 3 seconds', () => {
+    // Используем фейковые таймеры
+    jest.useFakeTimers()
+    const { result } = renderHook(() => useToastStore())
+
+    // Добавляем тост
+    act(() => {
+      result.current.addToast('Auto-remove test', 'info')
+    })
+
+    expect(result.current.toasts).toHaveLength(1)
+
+    // Пропускаем 3 секунды
+    act(() => {
+      jest.advanceTimersByTime(3000)
+    })
+
+    // Проверяем, что тост удалился
+    expect(result.current.toasts).toHaveLength(0)
+
+    // Восстанавливаем таймеры
+    jest.useRealTimers()
+  })
 })
