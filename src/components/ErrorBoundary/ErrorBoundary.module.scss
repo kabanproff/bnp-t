@@ -1,0 +1,27 @@
+.error-boundary {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__box {
+    max-width: min(60%, 300px);
+    margin: auto;
+    padding: 16px;
+    border: 1px solid #e74c3c;
+    border-radius: 8px;
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+
+  &__btn {
+    margin-top: 8px;
+    padding: 6px 12px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}

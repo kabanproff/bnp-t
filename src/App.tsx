@@ -7,6 +7,7 @@ import clsx from 'clsx'
 import styles from './App.module.css'
 import { useThemeStore } from './stores/themeStore'
 import ToastContainer from "./components/ToastContainer/ToastContainer.tsx";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary.tsx";
 
 function App() {
   const { theme } = useThemeStore()
@@ -17,16 +18,18 @@ function App() {
 
   return (
     <Router>
-      <Header />
-      <main className={clsx('container', styles.main)}>
-        <Routes>
-          <Route path="/" element={<CatalogPage />} />
-          <Route path="/products" element={<CatalogPage />} />
-          {/* <Route path="/products/:id" element={<ProductPage />} /> */}
-          <Route path="/cart" element={<CartPage />} />
-        </Routes>
-      </main>
-      <ToastContainer />
+      <ErrorBoundary>
+        <Header/>
+        <main className={clsx('container', styles.main)}>
+          <Routes>
+            <Route path="/" element={<CatalogPage/>}/>
+            <Route path="/products" element={<CatalogPage/>}/>
+            {/* <Route path="/products/:id" element={<ProductPage />} /> */}
+            <Route path="/cart" element={<CartPage/>}/>
+          </Routes>
+        </main>
+        <ToastContainer/>
+      </ErrorBoundary>
     </Router>
   )
 }
