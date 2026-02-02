@@ -19,7 +19,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   } = useProductsStore();
   useEffect(() => {
     setTotal(total);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   const maxPage = Math.ceil(total / limit);
 
   if (maxPage <= 1) return null;

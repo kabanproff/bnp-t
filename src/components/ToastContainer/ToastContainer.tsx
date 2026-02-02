@@ -1,8 +1,9 @@
+import React from "react";
 import Toast from '../Toast/Toast';
 import {useToastStore} from '../../stores/toastStore';
 import styles from "./ToastContainer.module.scss";
 
-const ToastContainer = () => {
+const ToastContainer:React.FC = () => {
   const {toasts, removeToast} = useToastStore()
   if (toasts.length === 0) return null
   return (

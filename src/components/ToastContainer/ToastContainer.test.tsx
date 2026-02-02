@@ -3,20 +3,32 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import ToastContainer from './ToastContainer'
 import { useToastStore } from '../../stores/toastStore'
+import {MockedFunction} from 'jest-mock';
 
-// Мокаем стор в тесте
+type ToastStore = ReturnType<typeof useToastStore>
+
+const mockAddToast = jest.fn()
+const mockRemoveToast = jest.fn()
+
+const mockStore: ToastStore = {
+  toasts: [],
+  addToast: mockAddToast,
+  removeToast: mockRemoveToast,
+}
+
 jest.mock('../../stores/toastStore', () => ({
-  useToastStore: jest.fn(),
+  useToastStore: jest.fn(() => mockStore),
 }))
 
+const mockedUseToastStore = useToastStore as MockedFunction<typeof useToastStore>
 describe('ToastContainer', () => {
   beforeEach(() => {
-    // Мокаем состояние стора
-    ;(useToastStore as any).mockReturnValue({
+    mockedUseToastStore.mockReturnValue({
       toasts: [
         { id: '1', message: 'Test', type: 'success' },
       ],
-      removeToast: jest.fn(),
+      addToast: mockAddToast,
+      removeToast: mockRemoveToast,
     })
   })
 
@@ -26,9 +38,10 @@ describe('ToastContainer', () => {
   })
 
   it('does not render if no toasts', () => {
-    ;(useToastStore as any).mockReturnValue({
+    mockedUseToastStore.mockReturnValue({
       toasts: [],
-      removeToast: jest.fn(),
+      addToast: mockAddToast,
+      removeToast: mockRemoveToast,
     })
     render(<ToastContainer />)
     expect(screen.queryByText('Test')).not.toBeInTheDocument()

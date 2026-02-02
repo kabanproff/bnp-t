@@ -1,16 +1,16 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { describe, it, expect, beforeEach } from '@jest/globals'
 import { render, screen } from '@testing-library/react'
 import CartIndicator from './CartIndicator'
 import { num_word } from '../../lib/numWord'
 
 // Мокируем num_word
-vi.mock('../../lib/numWord', () => ({
-  num_word: vi.fn(),
+jest.mock('../../lib/numWord', () => ({
+  num_word: jest.fn(),
 }))
 
 describe('CartIndicator', () => {
   beforeEach(() => {
-    vi.clearAllMocks()
+    (num_word as jest.Mock).mockClear()
   })
 
   it('should not render when totalItems is 0', () => {
@@ -19,7 +19,7 @@ describe('CartIndicator', () => {
   })
 
   it('should render with correct number and singular form for 1', () => {
-    vi.mocked(num_word).mockReturnValue('товар')
+    (num_word as jest.Mock).mockReturnValue('товар')
     render(<CartIndicator totalItems={1} />)
 
     const cartIndicator = screen.getByTestId('cart-indicator')
@@ -28,7 +28,7 @@ describe('CartIndicator', () => {
   })
 
   it('should render with correct number and plural form for 2', () => {
-    vi.mocked(num_word).mockReturnValue('товара')
+    (num_word as jest.Mock).mockReturnValue('товара')
     render(<CartIndicator totalItems={2} />)
 
     const cartIndicator = screen.getByTestId('cart-indicator')
@@ -37,7 +37,7 @@ describe('CartIndicator', () => {
   })
 
   it('should render with correct number and plural form for 5', () => {
-    vi.mocked(num_word).mockReturnValue('товаров')
+    (num_word as jest.Mock).mockReturnValue('товаров')
     render(<CartIndicator totalItems={5} />)
 
     const cartIndicator = screen.getByTestId('cart-indicator')
@@ -46,7 +46,7 @@ describe('CartIndicator', () => {
   })
 
   it('should render with correct number and singular form for 21', () => {
-    vi.mocked(num_word).mockReturnValue('товар')
+    (num_word as jest.Mock).mockReturnValue('товар')
     render(<CartIndicator totalItems={21} />)
 
     const cartIndicator = screen.getByTestId('cart-indicator')
@@ -55,7 +55,7 @@ describe('CartIndicator', () => {
   })
 
   it('should render with correct number and plural form for 11', () => {
-    vi.mocked(num_word).mockReturnValue('товаров')
+    (num_word as jest.Mock).mockReturnValue('товаров')
     render(<CartIndicator totalItems={11} />)
 
     const cartIndicator = screen.getByTestId('cart-indicator')
@@ -64,11 +64,10 @@ describe('CartIndicator', () => {
   })
 
   it('should render with correct number and plural form for 102', () => {
-    vi.mocked(num_word).mockReturnValue('товаров') // ✅ ИСПРАВЛЕНО: 102 → "товаров", а не "товара"
+    (num_word as jest.Mock).mockReturnValue('товаров')
     render(<CartIndicator totalItems={102} />)
-    // console.log(render(<CartIndicator totalItems={102} />))
+
     const cartIndicator = screen.getByTestId('cart-indicator')
-    // console.log(render(<CartIndicator totalItems={102}/>))
     expect(cartIndicator).toHaveTextContent('🛒 102 товаров')
     expect(num_word).toHaveBeenCalledWith(102, ['товар', 'товара', 'товаров'])
   })

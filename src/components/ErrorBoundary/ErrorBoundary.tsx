@@ -4,7 +4,6 @@ import styles from './ErrorBoundary.module.scss'
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;
-  fallback: React.ReactNode;
 }
 
 interface ErrorBoundaryState {

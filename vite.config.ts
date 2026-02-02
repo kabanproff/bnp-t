@@ -10,10 +10,4 @@ export default defineConfig({
       localsConvention: (originalClassName: string) => originalClassName,
     },
   },
-  test: {
-    globals: true,   //`test`, `expect` без импорта
-    environment: 'jsdom',    // Эмуляция браузера
-    // setupFiles: './src/setupTests.ts',  глобальные настройки
-    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    }
 })

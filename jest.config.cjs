@@ -7,9 +7,11 @@ const config = {
       'ts-jest',
       {
         tsconfig: 'tsconfig.test.json', // ← ВАЖНО: указывает на правильный tsconfig
+        useESM: true
       },
     ],
   },
+  extensionsToTreatAsEsm: ['.ts', '.tsx'],
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
