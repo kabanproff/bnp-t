@@ -4,12 +4,32 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "verbatimModuleSyntax": false,
-    "allowImportingTsExtensions": false,
+    "allowImportingTsExtensions": true,
     "noUncheckedSideEffectImports": false,
     "noEmit": false,
     "jsx": "react-jsx",
     "target": "ESNext",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+
+    "types": [
+      "jest",
+      "@testing-library/jest-dom",
+      "node"
+    ]
   },
-  "include": ["src", "src/lib/queryClient.ts"]
+  "include": [
+    "src/**/*",
+    "src/types/**/*",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

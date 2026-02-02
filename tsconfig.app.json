@@ -4,35 +4,33 @@
     "target": "ES2022",
     "useDefineForClassFields": true,
     "lib": [
-//      "ES2022",
       "ESNext",
       "DOM",
       "DOM.Iterable"
     ],
     "module": "ESNext",
-    "types": [
-      "vite/client",
-      "jest",
-      "@testing-library/jest-dom"
-    ],
-    "skipLibCheck": true,
-    /* Bundler mode */
-//    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
-//    "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
+    "skipLibCheck": true,
     "noUncheckedSideEffectImports": true,
+
+    /* Vite & CSS Modules */
+    "types": [
+      "vite/client",
+      "@testing-library/jest-dom",
+      "node"
+    ],
+
+    /* Плагин CSS Modules — ВАЖНО: он работает только в IDE, не влияет на сборку */
     "plugins": [
       {
         "name": "typescript-plugin-css-modules"
@@ -40,9 +38,12 @@
     ]
   },
   "include": [
-    "src",
-    "src/lib/queryClient.ts",
-    "src/types/*",
-    "src/types/**/*",
+    "src/**/*",
+    "src/types/**/*"
+  ],
+  "exclude": [
+    "src/**/*.test.tsx",
+    "src/**/*.test.ts",
+    "node_modules"
   ]
 }
