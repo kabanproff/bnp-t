@@ -1,6 +1,6 @@
-// src/lib/queryHooks/useProductById.ts
+// src/utils/queryHooks/useProductById.ts
 import { useQuery } from '@tanstack/react-query';
-import { api } from '../config/apiConfig';
+import { api } from '../services/apiConfig';
 
 export const useProductById = (id: number) => {
   return useQuery({

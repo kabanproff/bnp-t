@@ -16,7 +16,7 @@
     "noUncheckedSideEffectImports": true,
     "skipLibCheck": true,
 
-    /* Только для Node-среды (vite.config.ts) */
+    /* Только для Node-среды (vite.services.ts) */
     "types": ["node"]
   },
   "include": ["vite.config.ts"],

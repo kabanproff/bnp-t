@@ -1,4 +1,4 @@
-// src/lib/numWord.test.ts
+// src/utils/numWord.test.ts
 import { describe, it, expect } from '@jest/globals'
 import { num_word } from './numWord'
 

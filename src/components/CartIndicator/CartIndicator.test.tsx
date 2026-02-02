@@ -1,10 +1,10 @@
 import { describe, it, expect, beforeEach } from '@jest/globals'
 import { render, screen } from '@testing-library/react'
 import CartIndicator from './CartIndicator'
-import { num_word } from '../../lib/numWord'
+import { num_word } from '../../utils/numWord'
 
 // Мокируем num_word
-jest.mock('../../lib/numWord', () => ({
+jest.mock('../../utils/numWord', () => ({
   num_word: jest.fn(),
 }))
 

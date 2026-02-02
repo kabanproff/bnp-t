@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { api } from '../config/apiConfig';
+import { api } from '../services/apiConfig';
 import type { Product } from '../types/product';
 
 export const useProducts = (): ReturnType<typeof useQuery<Product[], Error>> => {

@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {num_word} from "../../lib/numWord.ts";
+import {num_word} from "../../utils/numWord.ts";
 import styles from "./ CartIndicator.module.scss";
 
 

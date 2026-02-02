@@ -8,7 +8,7 @@ import {ProductList} from '../components/ProductList/ProductList';
 import {CategoryFilter} from '../components/CategoryFilter/CategoryFilter';
 import {Pagination} from '../components/Pagination/Pagination';
 import styles from './CatalogPage.module.scss';
-import {createProduct} from "../lib/createProduct";
+import {createProduct} from "../utils/createProduct";
 import type {Product} from "../types/product";
 
 export const CatalogPage: React.FC = () => {
